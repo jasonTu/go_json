@@ -27,6 +27,7 @@ func main() {
 	methodValue := getValue.MethodByName("ReflectCallFuncHasArgs")
 	args := []reflect.Value{reflect.ValueOf("budeliao"), reflect.ValueOf(30)}
 	methodValue.Call(args)
+	// methodValue.Call("liaobude", 35) // want ([]reflect.Value)
 
 	methodValue = getValue.MethodByName("ReflectCallFuncNoArgs")
 	args = make([]reflect.Value, 0)
