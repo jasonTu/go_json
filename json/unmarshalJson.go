@@ -41,6 +41,10 @@ func testMap() (ret string, err error) {
 	m["username"] = "user1"
 	m["age"] = 18
 	m["sex"] = "male"
+	var sub_m map[string]interface{}
+	sub_m = make(map[string]interface{})
+	sub_m["un"] = "user2"
+	m["struct"] = sub_m
 	
 	data, err := json.Marshal(m)
 	if err != nil {
@@ -64,8 +68,10 @@ func test2() {
 		fmt.Println("Unmarshal failed, ", err)
 		return
 	}
+	fmt.Println(m["struct"])
 	fmt.Println(m)
 
+	/*
 	data, err = testStruct()
 	if err != nil {
 		fmt.Println("test struct failed")
@@ -77,6 +83,7 @@ func test2() {
 		return
 	}
 	fmt.Println(ms)
+	*/
 }
 
 func main() {
