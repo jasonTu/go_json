@@ -1,7 +1,5 @@
 # Golang
 
----
-
 ## Basic Info
 * [go env installation offical guide][1]
 ```
