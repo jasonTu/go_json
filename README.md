@@ -29,6 +29,7 @@ export go path in /etc/profile
 
 ## Interface
 * [Interfaces in Go (part I)][30]
+* [Interfaces in Go (part II)][31]
 
 ## Database
 * [Configuring sql.DB for Better Performance][22]
@@ -165,3 +166,4 @@ govendor add +external
 [28]: https://blog.cloudflare.com/the-complete-guide-to-golang-net-http-timeouts/
 [29]: https://zhuanlan.zhihu.com/p/48039838?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
 [30]: https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c
+[31]: https://medium.com/golangspec/interfaces-in-go-part-ii-d5057ffdb0a6
