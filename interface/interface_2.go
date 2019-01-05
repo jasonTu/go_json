@@ -331,10 +331,13 @@ type T2 struct{}
 func (T2) M1() {}
 func (T2) M2() {}
 func main() {
-    var v I1
+    // var v I1
+	var v I1 = T2{}
     switch v.(type) {
     case T1:
             fmt.Println("T1")
+    // case I2:
+    //        fmt.Println("I2")
     case T2:
             fmt.Println("T2")
     case nil:
