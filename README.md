@@ -1,5 +1,8 @@
 # Golang
 
+## Serials
+* [golangspec][32]
+
 ## Basic Info
 * [go env installation offical guide][1]
 ```
@@ -167,3 +170,4 @@ govendor add +external
 [29]: https://zhuanlan.zhihu.com/p/48039838?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
 [30]: https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c
 [31]: https://medium.com/golangspec/interfaces-in-go-part-ii-d5057ffdb0a6
+[32]: https://medium.com/golangspec
