@@ -17,6 +17,9 @@ export go path in /etc/profile
 * [golang database][14]
 * [go中文学习站][15]
 
+## Closure
+* [Closure in Golang][33]
+
 ## Share
 * [知乎社区核心业务 Golang 化实践][29]
 
@@ -171,3 +174,4 @@ govendor add +external
 [30]: https://medium.com/golangspec/interfaces-in-go-part-i-4ae53a97479c
 [31]: https://medium.com/golangspec/interfaces-in-go-part-ii-d5057ffdb0a6
 [32]: https://medium.com/golangspec
+[33]: https://www.jianshu.com/p/3934e62d78a1
