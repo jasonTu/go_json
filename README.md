@@ -2,6 +2,7 @@
 
 ## Serials
 * [golangspec][32]
+* [50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs][34]
 
 ## Basic Info
 * [go env installation offical guide][1]
@@ -175,3 +176,4 @@ govendor add +external
 [31]: https://medium.com/golangspec/interfaces-in-go-part-ii-d5057ffdb0a6
 [32]: https://medium.com/golangspec
 [33]: https://www.jianshu.com/p/3934e62d78a1
+[34]: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closure_for_it_vars
