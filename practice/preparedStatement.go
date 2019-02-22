@@ -35,9 +35,19 @@ func main() {
 	// 	"select `log_time` from `company99` where `log_time` BETWEEN 1549296000 AND 1549348494 AND `admin` IN ('xyz') or 1=1 -- )",
 	// )
 	// Use prepared statement to prevent sql injection
+	// rows, err := db.Query(
+	// 	"select `log_time` from `company99` where `log_time` BETWEEN ? AND ? AND `admin` IN (?, ?, ?)",
+	// 	"1549296000", "1549348494", "audituser", "admin@jason.com", "'xyz') or 1=1 -- ",
+	// )
+	// Sql injection with partial correct statement
+	// rows, err := db.Query(
+	// 	"select `log_time` from `company99` where `id` BETWEEN ? AND ? AND `admin` IN (?, ?, ?)",
+	// 	"88", "89", "audituser", "admin@jason.com", "'xyz') or 1=1 -- ",
+	// )
+	// Just use one placeholder in IN lookup statement will no take effect
 	rows, err := db.Query(
-		"select `log_time` from `company99` where `log_time` BETWEEN ? AND ? AND `admin` IN (?)",
-		"1549296000", "1549348494", "'xyz') or 1=1 -- ",
+		"select `log_time` from `company99` where `id` BETWEEN ? AND ? AND `admin` IN (?)",
+		"88", "89", "audituser, admin@jason.com, 'xyz') or 1=1 -- ",
 	)
 	if err != nil {
 	    log.Fatal(err)
