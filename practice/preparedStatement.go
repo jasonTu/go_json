@@ -7,7 +7,73 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
+var G_DB *sql.DB
 
+func init() {
+	var err error
+	G_DB, err = sql.Open("mysql", "root:Trend#1..@/auditlog")
+	if err != nil {
+	    log.Fatal(err)
+	}
+}
+
+func PrintLogTime(btime, etime, admin string) {
+	var log_time string
+	// Get data from database
+	sql := fmt.Sprintf(
+		"select `log_time` from `fakecompany` where `log_time` BETWEEN %s AND %s AND `admin` IN ('%s')",
+		btime, etime, admin,
+	)
+	log.Println(sql)
+	rows, err := G_DB.Query(sql)
+	if err != nil {
+	    log.Fatal(err)
+	}
+	// Parse the data
+	for rows.Next() {
+	    if err := rows.Scan(&log_time); err != nil {
+	        log.Fatal(err)
+	    }
+	    fmt.Printf("log_time %s\n", log_time)
+	}
+	if err := rows.Err(); err != nil {
+	    log.Fatal(err)
+	}
+}
+
+func PrintLogTimeV2(btime, etime, admin string) {
+	var log_time string
+	// Get data from database
+	rows, err := G_DB.Query(
+		"select `log_time` from `fakecompany` where `log_time` BETWEEN ? AND ? AND `admin` IN (?)",
+		btime, etime, admin,
+	)
+	if err != nil {
+	    log.Fatal(err)
+	}
+	// Parse the data
+	for rows.Next() {
+	    if err := rows.Scan(&log_time); err != nil {
+	        log.Fatal(err)
+	    }
+	    fmt.Printf("log_time %s\n", log_time)
+	}
+	if err := rows.Err(); err != nil {
+	    log.Fatal(err)
+	}
+}
+
+func main() {
+	btime, etime, admin := "1547715675", "1547725675", "SYS_ACCOUNT"
+	PrintLogTimeV2(btime, etime, admin)
+	btime, etime, admin = "1547715675", "1547725675", "SYS_ACCOUNT') limit 1  -- .com"
+	PrintLogTimeV2(btime, etime, admin)
+	btime, etime, admin = "1547715675", "1547725675", "SYS_ACCOUNT') or 1=1  -- .com"
+	PrintLogTimeV2(btime, etime, admin)
+}
+
+
+/*
 func main() {
 	db, err := sql.Open("mysql", "root:Trend#1..@/auditlog")
 	// rows, err := db.Query(
@@ -64,3 +130,4 @@ func main() {
 	    log.Fatal(err)
 	}
 }
+*/
