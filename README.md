@@ -44,6 +44,10 @@ export go path in /etc/profile
 ## Cache
 * [gomemcached][24]
 
+## Microservice
+* [go-micro][35]
+* [go-kit][36]
+
 ## Third-Party Libraries
 * [Log: logrus][20]
 
@@ -177,3 +181,5 @@ govendor add +external
 [32]: https://medium.com/golangspec
 [33]: https://www.jianshu.com/p/3934e62d78a1
 [34]: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closure_for_it_vars
+[35]: https://github.com/micro/go-micro
+[36]: https://github.com/go-kit/kit
