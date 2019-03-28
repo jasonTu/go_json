@@ -3,6 +3,7 @@
 ## Serials
 * [golangspec][32]
 * [50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs][34]
+* [gophercises][37]
 
 ## Basic Info
 * [go env installation offical guide][1]
@@ -20,6 +21,7 @@ export go path in /etc/profile
 
 ## Closure
 * [Closure in Golang][33]
+* [Closure in Go: introduce and gottas][38]
 
 ## Share
 * [知乎社区核心业务 Golang 化实践][29]
@@ -183,3 +185,5 @@ govendor add +external
 [34]: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closure_for_it_vars
 [35]: https://github.com/micro/go-micro
 [36]: https://github.com/go-kit/kit
+[37]: https://gophercises.com/
+[38]: https://www.calhoun.io/closures-in-go/
