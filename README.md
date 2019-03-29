@@ -143,10 +143,6 @@ govendor init
 govendor add +external
 # commit the library code
 ```
-
-## 坑
-* gin struct中每个字段首字母必须大写
-* := 和 = 的区别，不论之前声明与否，如果使用:=，则表明声明并定义一个变量，这往往会导致全局变量没有被赋值；真正赋值的时当前使用:=的语句
  
 
 [1]: https://golang.org/doc/install
