@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"fmt"
+	"strings"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -63,13 +64,50 @@ func PrintLogTimeV2(btime, etime, admin string) {
 	}
 }
 
+func TestOneCase(admin, admin2 string) {
+	var log_time string
+	var admins []interface{}
+	// admins := make([]interface{}, 5)
+	// admins[0] = admin
+	// admins[1] = admin2
+	// admins[2] = "log_time"
+	// // admins[3] = "asc"
+	// admins[3] = "1"
+	// admins[4] = "3"
+	// stmt := "select `log_time` from `fakecompany` where `admin` IN (?, ?) order by ? asc limit ?, ?"
+	stmt := "select `log_time` from `fakecompany`limit 1"
+	rows, err := G_DB.Query(stmt, admins...)
+	if err != nil {
+	    log.Fatal(err)
+	}
+	for rows.Next() {
+	    if err := rows.Scan(&log_time); err != nil {
+	        log.Fatal(err)
+	    }
+	    fmt.Printf("log_time %s\n", log_time)
+	}
+	if err := rows.Err(); err != nil {
+	    log.Fatal(err)
+	}
+	admins = append(admins, "testa")
+	log.Println(admins)
+}
+
 func main() {
-	btime, etime, admin := "1547715675", "1547725675", "SYS_ACCOUNT"
-	PrintLogTimeV2(btime, etime, admin)
-	btime, etime, admin = "1547715675", "1547725675", "SYS_ACCOUNT') limit 1  -- .com"
-	PrintLogTimeV2(btime, etime, admin)
-	btime, etime, admin = "1547715675", "1547725675", "SYS_ACCOUNT') or 1=1  -- .com"
-	PrintLogTimeV2(btime, etime, admin)
+	// btime, etime, admin := "1547715675", "1547725675", "SYS_ACCOUNT"
+	// PrintLogTimeV2(btime, etime, admin)
+	// btime, etime, admin = "1547715675", "1547725675", "SYS_ACCOUNT') limit 1  -- .com"
+	// PrintLogTimeV2(btime, etime, admin)
+	// btime, etime, admin = "1547715675", "1547725675", "SYS_ACCOUNT') or 1=1  -- .com"
+	// PrintLogTimeV2(btime, etime, admin)
+	admin := "jason"
+	admin2 := "tony"
+	TestOneCase(admin, admin2)
+	accounts := "\"aaa\""
+	accounts = strings.Replace(accounts, "\"", "", -1)
+	fmt.Println(accounts)
+	acts := strings.Split(accounts, ",")
+	fmt.Println(acts)
 }
 
 
